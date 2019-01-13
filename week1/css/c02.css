@@ -102,6 +102,7 @@ a {
     text-align: left;}
 
 table {
+    width: 450px;
     margin: 20px 100px 0px 100px;}
 
 tr td:first-child {
