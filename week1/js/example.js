@@ -11,6 +11,7 @@ const welcome = greeting + name + message;
 // Create variables to hold details about the sign
 const sign = 'Montague House';
 const tiles = sign.length;
+const tileType = 'stone';     // Requirement 2
 const subTotal = tiles * 5;
 const shipping = 7;
 const grandTotal = subTotal + shipping;
