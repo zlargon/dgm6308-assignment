@@ -47,6 +47,10 @@ ele.userSign.textContent = sign;
 ele.tiles = document.getElementById('tiles');
 ele.tiles.textContent = tiles;
 
+// Requirement 5
+ele.pricePerTile = document.getElementById('pricePerTile');
+ele.pricePerTile.textContent = `(${tileType}) $${pricePerTile}`;
+
 // Get the element that has an id of subTotal then update its contents
 ele.subTotal = document.getElementById('subTotal');
 ele.subTotal.textContent = '$' + subTotal;
