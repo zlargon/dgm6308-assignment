@@ -16,6 +16,18 @@ const getTilePrice = (tileType) => {
   return tileType in TILE_TYPE_PRICE ? TILE_TYPE_PRICE[tileType] : 0;
 }
 
+const calculateLengthWithoutSpace = (str) => {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+
+    // if the character of index is not space, increase 'count' with 1
+    if (str.charAt(i) !== ' ') {
+      count++;
+    }
+  }
+  return count;
+}
+
 // Create variables for the welcome message
 const greeting = 'Howdy ';
 const name = 'Molly';
@@ -24,11 +36,16 @@ const message = ', please check your order:';
 const welcome = greeting + name + message;
 
 // Create variables to hold details about the sign
-const sign = 'Montague House';
-const tiles = sign.length;
-const tileType = 'stone';                       // Requirement 2
-const pricePerTile = getTilePrice(tileType);    // Requirement 3
-const subTotal = tiles * pricePerTile;          // Requirement 4
+const sign = 'Montague House September Space Sale!'; // BONUS
+const tiles = calculateLengthWithoutSpace(sign);
+
+// Alternative Solution:
+// const tiles = sign.replace(/\s/g, '').length;    // find all whitespace characters (\s) by regular expression and replace them to ''
+                                                    // count the length without whitespace characters
+
+const tileType = 'stone';                           // Requirement 2
+const pricePerTile = getTilePrice(tileType);        // Requirement 3
+const subTotal = tiles * pricePerTile;              // Requirement 4
 const shipping = 7;
 const grandTotal = subTotal + shipping;
 
