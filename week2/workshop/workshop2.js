@@ -28,7 +28,16 @@ const assignmentData = [
   // }
 ];
 
-// write a class for the Student here
+// Task3: write a class for the Student here
+class Student {
+
+  // this function should be passed the student's first name and last name as well as a reference to the gradebookData array
+  constructor(firstName, lastName, gradebookData) {
+    this.id = gradebookData.length; // create an id property for the Student object, and set its value the current length of the gradebookData array
+    this.firstName = firstName;     // create a firstName property for the object and set it to the value of the first name that was passed into the function
+    this.lastName = lastName;       // create a lastName property for the object and set it to the value of the last name that was passed into the function
+  }
+}
 
 // Assignment class
 class Assignment {
