@@ -26,3 +26,22 @@ const assignPetToPerson = (pet, person) => {
 
 // Test this function by assigning Fluffy to Mary
 assignPetToPerson(fluffy, mary);
+
+// 3a. Create two more people, naming them however you want.
+const claire = new Person('Claire');
+const leon = new Person('Leon');
+
+// 3a. Create two new Pets for the second person, also naming them whatever you want making them of whatever species you want.
+const cuihua = new Pet('Cuihua', 'dog');
+const igloo = new Pet('Igloo', 'dog');
+assignPetToPerson(cuihua, claire);
+assignPetToPerson(igloo, claire);
+
+// 3b. For the third person, assign him or her the same Pet object that Mary has (so they co-own Fluffy).
+assignPetToPerson(fluffy, leon);
+
+//  Then create two new Pets for the third person, also making them whatever you want, so that the third person has a total of three pets.
+const bubble = new Pet('Bubble', 'dog');
+const stark = new Pet('Stark', 'dog');
+assignPetToPerson(bubble, leon);
+assignPetToPerson(stark, leon);
