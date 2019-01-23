@@ -1,4 +1,4 @@
-// Task2: store all of the Students and their grades
+// Task 2: store all of the Students and their grades
 const gradebookData = [
   // {
   //   id: 0,
@@ -14,7 +14,7 @@ const gradebookData = [
   // }
 ];
 
-// Task2: store Assignments and the total points available on each assignment
+// Task 2: store Assignments and the total points available on each assignment
 const assignmentData = [
   // {
   //   id: 0,
@@ -28,7 +28,7 @@ const assignmentData = [
   // }
 ];
 
-// Task3: write a class for the Student here
+// Task 3: write a class for the Student here
 class Student {
 
   // this function should be passed the student's first name and last name as well as a reference to the gradebookData array
@@ -42,7 +42,7 @@ class Student {
   }
 }
 
-// Task4: Test the Student class constructor
+// Task 4: Test the Student class constructor
 function testStudentClass () {
   const c = new Student("Charlie", "Chaplin", gradebookData);
   console.log(c);
@@ -58,7 +58,7 @@ class Assignment {
   } // end Assignment constructor
 } // end Assignment class
 
-// Task7: write function createNewAssignment here
+// Task 7: write function createNewAssignment here
 function createNewAssignment(assignmentName, totalPointValue, assignmentData, gradebookData) {
   // call the constructor function Assignment using the data
   const assignment = new Assignment(assignmentName, totalPointValue, assignmentData);
@@ -72,10 +72,15 @@ function createNewAssignment(assignmentName, totalPointValue, assignmentData, gr
   }
 }
 
-// Task5: write function createNewStudent here
+// Task 5: write function createNewStudent here
 function createNewStudent(firstName, lastName, assignmentData, gradebookData) {
   // create a temporary variable (I called mine "student"), call the Student constructor function, and store the results in your temporary variable.
   const student = new Student(firstName, lastName, gradebookData);
+
+  // Task 12: whenever a new student is added, all assignments currently stored in assignmentData are added to the appropriate positions in the new Student's grades array
+  for (const assignment of assignmentData) {
+    student.grades[assignment.id] = 0;
+  }
 
   // using the Array method push(), add the student that you've stored in your temporary variable to the end of the gradebookData array.
   gradebookData.push(student);
@@ -136,10 +141,10 @@ function outputGradebook(gradebookData, assignmentData) {
 
 // UNCOMMENT THESE LINES WHEN INSTRUCTED IN THE WORKSHOP
 
-createNewStudent("Adam","Anders", assignmentData, gradebookData);     // Uncomment for Task6
-createNewAssignment("Homework#1", 10, assignmentData, gradebookData); // Uncomment for Task8
-createNewStudent("Beth","Booker", assignmentData, gradebookData);     // Uncomment for Task11
-createNewAssignment("Homework#2", 20, assignmentData, gradebookData); // Uncomment for Task11
+createNewStudent("Adam","Anders", assignmentData, gradebookData);     // Uncomment for Task 6
+createNewAssignment("Homework#1", 10, assignmentData, gradebookData); // Uncomment for Task 8
+createNewStudent("Beth","Booker", assignmentData, gradebookData);     // Uncomment for Task 11
+createNewAssignment("Homework#2", 20, assignmentData, gradebookData); // Uncomment for Task 11
 // updateStudentGrade(0, 0, 5, gradebookData);
 // updateStudentGrade(1, 1, 10, gradebookData);
 
