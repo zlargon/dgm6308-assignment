@@ -39,6 +39,12 @@ class Student {
   }
 }
 
+// Task4: Test the Student class constructor
+function testStudentClass () {
+  const c = new Student("Charlie", "Chaplin", gradebookData);
+  console.log(c);
+}
+
 // Assignment class
 class Assignment {
   constructor (assignmentName, totalPointValue, assignmentData) {
