@@ -36,6 +36,9 @@ class Student {
     this.id = gradebookData.length; // create an id property for the Student object, and set its value the current length of the gradebookData array
     this.firstName = firstName;     // create a firstName property for the object and set it to the value of the first name that was passed into the function
     this.lastName = lastName;       // create a lastName property for the object and set it to the value of the last name that was passed into the function
+
+    // Task6: If you don't see Adam Anders appear in the HTML output, go to the JavaScript console and type in gradebookData to see if the object was properly populated with the data (which should include not only his name and ID, but also an empty array for his grades)!
+    this.grades = [];
   }
 }
 
@@ -122,7 +125,7 @@ function outputGradebook(gradebookData, assignmentData) {
 
 // UNCOMMENT THESE LINES WHEN INSTRUCTED IN THE WORKSHOP
 
-// createNewStudent("Adam","Anders", assignmentData, gradebookData);
+createNewStudent("Adam","Anders", assignmentData, gradebookData);  // Uncomment in Task6
 // createNewAssignment("Homework#1", 10, assignmentData, gradebookData);
 // createNewStudent("Beth","Booker", assignmentData, gradebookData);
 // createNewAssignment("Homework#2", 20, assignmentData, gradebookData);
