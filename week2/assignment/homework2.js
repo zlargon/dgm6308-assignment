@@ -48,3 +48,12 @@ assignPetToPerson(stark, leon);
 
 // 5a. After the code for all of the above, change Mary's pet's name to Mittens.
 fluffy.name = 'Mittens';
+
+// 4 & 5. Write a reportPets function that takes a Person object as a parameter and outputs to the console the person's name followed colon followed by a comma- separated list of pets with the species of pet in parentheses after each pet.
+const reportPets = (person) => {
+
+  const pets = person.pets.map(pet => `${pet.name} (${pet.species})`) // use "map" to return a new string array with specified format: "pet (species)"
+                          .join(', ');                                // return a new string which combines all the string elements in array with "comma separator"
+
+  console.log(`${person.name}: ${pets}`);
+}
