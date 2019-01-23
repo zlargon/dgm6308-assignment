@@ -45,3 +45,6 @@ const bubble = new Pet('Bubble', 'dog');
 const stark = new Pet('Stark', 'dog');
 assignPetToPerson(bubble, leon);
 assignPetToPerson(stark, leon);
+
+// 5a. After the code for all of the above, change Mary's pet's name to Mittens.
+fluffy.name = 'Mittens';
