@@ -57,7 +57,15 @@ class Assignment {
 
 // write function createNewAssignment here
 
-// write function createNewStudent here
+// Task5: write function createNewStudent here
+function createNewStudent(firstName, lastName, assignmentData, gradebookData) {
+
+  // create a temporary variable (I called mine "student"), call the Student constructor function, and store the results in your temporary variable.
+  const student = new Student(firstName, lastName, gradebookData);
+
+  // using the Array method push(), add the student that you've stored in your temporary variable to the end of the gradebookData array.
+  gradebookData.push(student);
+}
 
 // write function updateStudentGrade here
 
