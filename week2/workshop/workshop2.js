@@ -131,8 +131,8 @@ function outputGradebook(gradebookData, assignmentData) {
 
 // UNCOMMENT THESE LINES WHEN INSTRUCTED IN THE WORKSHOP
 
-createNewStudent("Adam","Anders", assignmentData, gradebookData);  // Uncomment in Task6
-// createNewAssignment("Homework#1", 10, assignmentData, gradebookData);
+createNewStudent("Adam","Anders", assignmentData, gradebookData);     // Uncomment for Task6
+createNewAssignment("Homework#1", 10, assignmentData, gradebookData); // Uncomment for Task8
 // createNewStudent("Beth","Booker", assignmentData, gradebookData);
 // createNewAssignment("Homework#2", 20, assignmentData, gradebookData);
 // updateStudentGrade(0, 0, 5, gradebookData);
