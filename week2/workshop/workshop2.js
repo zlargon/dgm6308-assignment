@@ -65,6 +65,11 @@ function createNewAssignment(assignmentName, totalPointValue, assignmentData, gr
 
   // add the newly created assignment to the end of the assignmentData array
   assignmentData.push(assignment);
+
+  // Task 9: give them a 0 for the new assignment, since they haven't yet done it!
+  for (const student of gradebookData) {
+    student.grades[assignment.id] = 0;
+  }
 }
 
 // Task5: write function createNewStudent here
