@@ -138,8 +138,8 @@ function outputGradebook(gradebookData, assignmentData) {
 
 createNewStudent("Adam","Anders", assignmentData, gradebookData);     // Uncomment for Task6
 createNewAssignment("Homework#1", 10, assignmentData, gradebookData); // Uncomment for Task8
-// createNewStudent("Beth","Booker", assignmentData, gradebookData);
-// createNewAssignment("Homework#2", 20, assignmentData, gradebookData);
+createNewStudent("Beth","Booker", assignmentData, gradebookData);     // Uncomment for Task11
+createNewAssignment("Homework#2", 20, assignmentData, gradebookData); // Uncomment for Task11
 // updateStudentGrade(0, 0, 5, gradebookData);
 // updateStudentGrade(1, 1, 10, gradebookData);
 
