@@ -1,3 +1,4 @@
+// Task2: store all of the Students and their grades
 const gradebookData = [
   // {
   //   id: 0,
@@ -13,6 +14,7 @@ const gradebookData = [
   // }
 ];
 
+// Task2: store Assignments and the total points available on each assignment
 const assignmentData = [
   // {
   //   id: 0,
