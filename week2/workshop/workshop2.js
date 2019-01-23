@@ -86,7 +86,11 @@ function createNewStudent(firstName, lastName, assignmentData, gradebookData) {
   gradebookData.push(student);
 }
 
-// write function updateStudentGrade here
+// Task 14: write function updateStudentGrade here
+// a student ID #, an assignment ID #, the number of points that the student scored, and a reference to our gradebookData array
+function updateStudentGrade(studentId, assignmentId, score, gradebookData) {
+  gradebookData[studentId].grades[assignmentId] = score;
+}
 
 
 // OUTPUT CODE -- DO NOT EDIT THIS WEEK!
@@ -145,7 +149,7 @@ createNewStudent("Adam","Anders", assignmentData, gradebookData);     // Uncomme
 createNewAssignment("Homework#1", 10, assignmentData, gradebookData); // Uncomment for Task 8
 createNewStudent("Beth","Booker", assignmentData, gradebookData);     // Uncomment for Task 11
 createNewAssignment("Homework#2", 20, assignmentData, gradebookData); // Uncomment for Task 11
-// updateStudentGrade(0, 0, 5, gradebookData);
-// updateStudentGrade(1, 1, 10, gradebookData);
+updateStudentGrade(0, 0, 5, gradebookData);                           // Uncomment for Task 14
+updateStudentGrade(1, 1, 10, gradebookData);                          // Uncomment for Task 14
 
 outputGradebook(gradebookData, assignmentData);
