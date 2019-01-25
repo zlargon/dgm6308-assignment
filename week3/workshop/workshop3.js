@@ -82,6 +82,10 @@ function promptForStudentInfo() {
 
 // STEPS 6 AND 9:
 // IN STEP 6, WRITE A TEST FUNCTION TO MAKE SURE THE BUTTON WORKS
+function promptForAssignmentInfo() {
+    alert("Prompting for Assignment Info!");
+}
+
 // IN STEP 9, EDIT THE FUNCTION TO WORK AS DESCRIBED
 
 
@@ -89,6 +93,9 @@ function promptForStudentInfo() {
 // STEPS 4-6: ADD YOUR CODE TO WIRE THE BUTTON OBJECTS TO THE FUNCTIONS
 ele.addStudent = document.getElementById('addStudent');                 // get the "Add Student" button from the DOM using document.getElementById
 ele.addStudent.addEventListener('click', promptForStudentInfo, false);  // assign the click event to the function promptForStudentInfo
+
+ele.addAssignment = document.getElementById('addAssignment');
+ele.addAssignment.addEventListener('click', promptForAssignmentInfo, false);   // Have a click on this button call a function called promptForAssignmentInfo.
 
 // HERE. FOR STEP 6, BE SURE TO ALSO ADD YOUR TEST FUNCTION ABOVE!
 
