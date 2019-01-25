@@ -77,7 +77,22 @@ function addStudentRow(studentID, firstName, lastName) {
 
 // STEP 7: EDIT THIS FUNCTION
 function promptForStudentInfo() {
-    alert("Prompting for Student Info!");
+    // Initialize local variables firstName and lastName to empty strings
+    let firstName = '';
+    let lastName = '';
+
+    // Using a do...while loop, repeatedly ask the user to "Please enter the student's first name" until an answer consisting of 1 or more characters is typed.
+    do {
+        firstName = prompt("Please enter the student's first name");
+    } while (typeof firstName !== 'string' || firstName.length <= 0);
+
+    // Using a do...while loop, repeatedly ask the user to "Please enter the student's last name" until an answer consisting of 1 or more characters is typed.
+    do {
+        lastName = prompt("Please enter the student's last name");
+    } while (typeof lastName !== 'string' || lastName.length <= 0);
+
+    // Call the createNewStudent function, passing it firstName and LastName
+    createNewStudent(firstName, lastName);
 }
 
 // STEPS 6 AND 9:
