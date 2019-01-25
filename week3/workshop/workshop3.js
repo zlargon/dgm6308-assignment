@@ -1,5 +1,7 @@
-var gradebookData = [];
-var assignmentData = [];
+const ele = {}; // This is a global object to store all DOM elements
+
+const gradebookData = [];
+const assignmentData = [];
 
 class Student {
 	constructor (firstName, lastName) {
@@ -26,7 +28,7 @@ function createNewAssignment(assignmentName, totalPointValue) {
     var i;
     assignmentData.push(assignment);
     /*  ... then update the gradebook so every student i has a 0 score in
-        that assignment spot. (Note that students just have a number for each  
+        that assignment spot. (Note that students just have a number for each
         assignment position; the assignment names are handled in the separate
         assignmentData array)
     */
@@ -40,7 +42,7 @@ function createNewStudent(firstName, lastName) {
     var student = new Student(firstName, lastName);
     var i;
     gradebookData.push(student);
-    // update new student so s/he has a grade of 0 for every existing 
+    // update new student so s/he has a grade of 0 for every existing
     // assignment i from the assignment array
     for (i = 0; i < assignmentData.length; i = i + 1) {
         student.grades[i] = 0;
@@ -59,11 +61,11 @@ function updateStudentGrade(studentID, assignmentID, points) {
 function addStudentRow(studentID, firstName, lastName) {
     var gradeTable = document.getElementById('gradebook');
     var studentRow = gradeTable.appendChild(document.createElement('tr'));
-    
+
     var id = studentRow.appendChild(document.createElement('td'));
     var studentName = studentRow.appendChild(document.createElement('td'));
     var studentPercent = studentRow.appendChild(document.createElement('td'));
-    
+
     id.appendChild(document.createTextNode(studentID));
     studentName.appendChild(document.createTextNode(firstName + " " + lastName));     studentPercent.appendChild(document.createTextNode("0"));
 
@@ -85,6 +87,9 @@ function promptForStudentInfo() {
 
 
 // STEPS 4-6: ADD YOUR CODE TO WIRE THE BUTTON OBJECTS TO THE FUNCTIONS
+ele.addStudent = document.getElementById('addStudent');                 // get the "Add Student" button from the DOM using document.getElementById
+ele.addStudent.addEventListener('click', promptForStudentInfo, false);  // assign the click event to the function promptForStudentInfo
+
 // HERE. FOR STEP 6, BE SURE TO ALSO ADD YOUR TEST FUNCTION ABOVE!
 
 
@@ -99,7 +104,7 @@ createNewAssignment("Homework#2", 20);
 
 // THE TEST DATA BELOW DOES NOT WORK AS OF THE END OF THE WORKSHOP BECAUSE
 // WE HAVE NOT YET WRITTEN A ROUTINE TO VISUALLY UPDATE EXISTING TABLE ROWS
-// In addition, because I have removed the routine that I wrote for last week 
+// In addition, because I have removed the routine that I wrote for last week
 // to draw the gradebook, which also calculated the student grade percentages,
 // that data just doesn't exist in this version (since we don't store a student's
 // overall class score in Student objects right now.
