@@ -230,11 +230,11 @@ function promptForAssignmentInfo() {
 //HOMEWORK STEP 2 GOES HERE
 function promptForGradeInfo() {
     const studentID = promptNumber("1. Please enter the Student ID:", {
-        max: gradebookData.length - 1
+        max: gradebookData.length - 1   // Bonus 1: user is told the range of student ID numbers
     });
 
     const assignmentID = promptNumber("2. Please enter the Assignment ID:", {
-        max: assignmentData.length - 1
+        max: assignmentData.length - 1  // Bonus 1: user is told the range of assignment ID numbers
     });
 
     const points = promptNumber("3. Please enter the Point of Student's Assignment:", {
@@ -297,7 +297,7 @@ const promptNumber = (message, { onlyInteger = true, max = Number.MAX_VALUE, min
 
     let error = '';
     for (;;) {
-        const input = prompt(`${message}\n${error}`);
+        const input = prompt(`${message} (${min}-${max})\n${error}`);
 
         // the input should not be 'Infinity'
         if (input === 'Infinity') {
@@ -328,9 +328,12 @@ const promptNumber = (message, { onlyInteger = true, max = Number.MAX_VALUE, min
             continue;
         }
 
+        // Bonus1: Prompt the user to re-enter the data if the number entered is less than 0 or greater
+        // than the current maximum number for student ID or assignment.
+
         // optional: the num is out of range
         if (min > num || num > max) {
-            error = `The input (${input}) is out of range (${min}..${max})`;
+            error = `The input (${input}) is out of range (${min}-${max})`;
             continue;
         }
 
