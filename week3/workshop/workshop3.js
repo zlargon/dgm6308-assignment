@@ -74,7 +74,7 @@ function addGradeColumn(assignmentName, totalPointValue) {
     return gradeColumn;
 }
 
-
+// STEP 13
 function addStudentRow(studentID, firstName, lastName) {
     var gradeTable = document.getElementById('gradebook');
     var studentRow = gradeTable.appendChild(document.createElement('tr'));
@@ -84,7 +84,8 @@ function addStudentRow(studentID, firstName, lastName) {
     var studentPercent = studentRow.appendChild(document.createElement('td'));
 
     id.appendChild(document.createTextNode(studentID));
-    studentName.appendChild(document.createTextNode(firstName + " " + lastName));     studentPercent.appendChild(document.createTextNode("0"));
+    studentName.appendChild(document.createTextNode(firstName + " " + lastName));
+    studentPercent.appendChild(document.createTextNode("0"));
 
     // STEPS 14-15: CREATE A LOOP TO ITERATE THROUGH THE ASSIGNMENTDATA ARRAY
     // AND ADD A TABLE CELL CONTAINING "0" FOR EACH. PUT A RETURN VALUE
