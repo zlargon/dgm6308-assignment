@@ -9,7 +9,9 @@ class Student {
 		this.lastName = lastName;
 		this.id = gradebookData.length;
 		this.grades = [];
-		// AT THE END OF STEP 15, ADD A LINE TO CALL addStudentRow HERE
+
+        // AT THE END OF STEP 15, ADD A LINE TO CALL addStudentRow HERE
+        this.studentRow = addStudentRow(this.id, firstName, lastName);
 	}
 } // end class Student
 
@@ -96,6 +98,7 @@ function addStudentRow(studentID, firstName, lastName) {
         studentRow.appendChild(td);
     }
 
+    return studentRow;
 }
 
 // STEP 7: EDIT THIS FUNCTION
