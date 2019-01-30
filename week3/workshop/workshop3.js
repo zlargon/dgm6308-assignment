@@ -55,7 +55,22 @@ function updateStudentGrade(studentID, assignmentID, points) {
 
 // STEP 10: WRITE YOUR INITIAL addGradeColumn FUNCTION HERE
 // STEP 17: EDIT addGradeColumn to ADD NEW COLUMNS TO ANY EXISTING STUDENTS
+function addGradeColumn(assignmentName, totalPointValue) {
+    // Find the gradeHeaders element in the document object and assign it to a local variable called gradeHeaderRow
+    const gradeHeaderRow = document.getElementById('gradeHeaders');
 
+    // Assign the results of document.createElement('td') to a local variable called gradeColumn.
+    const gradeColumn = document.createElement('td');
+
+    // Calling appendChild from our gradeColumn, attach a new text node (created using document.createTextNode)
+    const textNode = document.createTextNode(`${assignmentName} (${totalPointValue})`);
+    gradeColumn.appendChild(textNode);
+
+    // Once you have gradeColumn all set up with its text node child, use appendChild again to attach the gradeColumn to gradeHeaderRow.
+    gradeHeaderRow.appendChild(gradeColumn);
+
+    return gradeColumn;
+}
 
 
 function addStudentRow(studentID, firstName, lastName) {
