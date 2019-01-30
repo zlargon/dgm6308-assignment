@@ -215,6 +215,8 @@ const addAssignmentButton = document.getElementById('addAssignment');
 addAssignmentButton.addEventListener('click',promptForAssignmentInfo, false);
 
 // HOMEWORK STEP 1 GOES HERE
+const updateGradeButton = document.getElementById('updateGrade');
+
 
 createNewStudent("Adam","Anders");
 createNewAssignment("Homework#1", 10);
