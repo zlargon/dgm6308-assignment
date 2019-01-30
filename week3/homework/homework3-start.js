@@ -207,6 +207,24 @@ function promptForAssignmentInfo() {
 }
 
 //HOMEWORK STEP 2 GOES HERE
+function promptForGradeInfo() {
+    const studentID = promptNumber("1. Please enter the Student ID:", {
+        max: gradebookData.length - 1
+    });
+
+    const assignmentID = promptNumber("2. Please enter the Assignment ID:", {
+        max: assignmentData.length - 1
+    });
+
+    const points = promptNumber("3. Please enter the Point of Student's Assignment:", {
+        onlyInteger: false,                                 // point can be a float number
+        max: assignmentData[assignmentID].totalPointValue   // point should not greater than totalPointValue
+    });
+
+    // At the end of this function, you should call the function called updateStudentGrade
+    updateStudentGrade(studentID, assignmentID, points);
+}
+
 
 const addStudentButton = document.getElementById('addStudent');
 addStudentButton.addEventListener('click', promptForStudentInfo, false);
@@ -216,6 +234,7 @@ addAssignmentButton.addEventListener('click',promptForAssignmentInfo, false);
 
 // HOMEWORK STEP 1 GOES HERE
 const updateGradeButton = document.getElementById('updateGrade');
+updateGradeButton.addEventListener('click', promptForGradeInfo, false);
 
 
 createNewStudent("Adam","Anders");
@@ -227,3 +246,73 @@ createNewAssignment("Homework#2", 20);
 
 updateStudentGrade(0, 0, 5);
 updateStudentGrade(1, 1, 10);
+
+
+// MY CUSTOMISED FUNCTIONS
+
+/*
+ * Convert the prompt value to a number and check the number's validation
+ *
+ * 'onlyInteger' is true by default
+ * 'max' is Number.MAX_VALUE(1.7976931348623157e+308) by default
+ * 'min' is 0 by default
+ */
+const promptNumber = (message, { onlyInteger = true, max = Number.MAX_VALUE, min = 0 }) => {
+    /*
+     * https://stackoverflow.com/questions/12227594/which-is-better-numberx-or-parsefloatx
+     *
+     * 1. Number() will convert 'Infinity' to Infinity
+     *    e.g.
+     *    Number('Infinity')  // => Infinity
+     *
+     * 2. Number() will convert empty strings or strings containing only white space to ZERO
+     *    e.g.
+     *    Number("")          // => 0
+     *    Number(' \r\n\t')   // => 0
+     *
+     *    To avoid these strange cases, I check the input string (which should not be 'Infinity')
+     *    and check the assignmentValue (which should be greater than 0)
+     */
+
+    let error = '';
+    for (;;) {
+        const input = prompt(`${message}\n${error}`);
+
+        // the input should not be 'Infinity'
+        if (input === 'Infinity') {
+            error = `The input (${input}) could not be convert to a number`;
+            continue;
+        }
+
+        // use regular expression to check the input that should not be:
+        // an empty string or a string containing only white space
+        const pattern = /^\s*$/g;
+        if (pattern.test(input)) {
+            error = `The input (${input}) should not be empty or contain only white space`;
+            continue;
+        }
+
+        // convert the input to number
+        const num = Number(input);
+
+        // the num should not be NaN
+        if (Number.isNaN(num)) {
+            error = `The input (${input}) could not be convert to a number`;
+            continue;
+        }
+
+        // optional: the num should only be an integer
+        if (onlyInteger && !Number.isInteger(num)) {
+            error = `The input (${input}) should only be an integer`;
+            continue;
+        }
+
+        // optional: the num is out of range
+        if (min > num || num > max) {
+            error = `The input (${input}) is out of range (${min}..${max})`;
+            continue;
+        }
+
+        return num;
+    }
+}
