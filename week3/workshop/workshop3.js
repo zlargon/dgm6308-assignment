@@ -97,13 +97,49 @@ function promptForStudentInfo() {
 
 // STEPS 6 AND 9:
 // IN STEP 6, WRITE A TEST FUNCTION TO MAKE SURE THE BUTTON WORKS
-function promptForAssignmentInfo() {
-    alert("Prompting for Assignment Info!");
-}
-
 // IN STEP 9, EDIT THE FUNCTION TO WORK AS DESCRIBED
+function promptForAssignmentInfo() {
+    let assignmentName = '';    // initialize assignmentName to an empty string
+    let assignmentValue = 0;    // initialize assignmentValue to the number 0
 
+    // Using a do...while loop, repeatedly ask the user until an answer consisting of 1 or more characters is typed
+    do {
+        assignmentName = prompt("Please enter the assignment's name");
+    } while (typeof assignmentName !== 'string' || assignmentName.length <= 0);
 
+    // Using a do...while loop, repeatedly ask the user until an numeric answer is typed
+    for (;;) {
+        const input = prompt("Please enter a positive numeric point value for the assignment");
+        if (input === 'Infinity') {
+            continue;
+        }
+
+        assignmentValue = Number(input);
+        if (Number.isNaN(assignmentValue) || assignmentValue <= 0) {
+            continue;
+        }
+
+        /*
+         * https://stackoverflow.com/questions/12227594/which-is-better-numberx-or-parsefloatx
+         *
+         * 1. Number() will convert 'Infinity' to Infinity
+         *    e.g.
+         *    Number('Infinity')  // => Infinity
+         *
+         * 2. Number() will convert empty strings or strings containing only white space to ZERO
+         *    e.g.
+         *    Number("")          // => 0
+         *    Number(' \r\n\t')   // => 0
+         *
+         *    To avoid these strange cases, I check the input string (which should not be 'Infinity')
+         *    and check the assignmentValue (which should be greater than 0)
+         */
+        break;
+    }
+
+    // Call the createNewAssignment function, passing it assignmentName and assignmentValue
+    createNewAssignment(assignmentName, assignmentValue);
+}
 
 // STEPS 4-6: ADD YOUR CODE TO WIRE THE BUTTON OBJECTS TO THE FUNCTIONS
 ele.addStudent = document.getElementById('addStudent');                 // get the "Add Student" button from the DOM using document.getElementById
