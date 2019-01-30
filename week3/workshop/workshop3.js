@@ -90,6 +90,11 @@ function addStudentRow(studentID, firstName, lastName) {
     // STEPS 14-15: CREATE A LOOP TO ITERATE THROUGH THE ASSIGNMENTDATA ARRAY
     // AND ADD A TABLE CELL CONTAINING "0" FOR EACH. PUT A RETURN VALUE
     // AT THE END OF THE FUNCTION.
+    for (const assignment of assignmentData) {
+        const td = document.createElement('td');
+        td.textContent = '0';
+        studentRow.appendChild(td);
+    }
 
 }
 
