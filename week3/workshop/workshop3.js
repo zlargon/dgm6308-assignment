@@ -18,7 +18,9 @@ class Assignment {
 		this.assignmentName = assignmentName;
 		this.totalPointValue = totalPointValue;
 		this.id = assignmentData.length;
+
 		// STEP 11 GOES HERE
+        this.gradeColumn = addGradeColumn(assignmentName, totalPointValue);
 	}
 }
 
