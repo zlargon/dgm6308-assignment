@@ -50,32 +50,40 @@ ID for each field.
 
 */
 class Student {
-	constructor (firstName, lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.id = gradebookData.length;
-		this.grades = [];
-		this.studentRow = addStudentRow(this.id, firstName, lastName);
-	}
+    constructor (firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = gradebookData.length;
+        this.grades = [];
+
+        // Bonus 2: Move the calls to addStudentRowout of the constructor function
+        // this.studentRow = addStudentRow(this.id, firstName, lastName);
+    }
 } // end class Student
 
 class Assignment {
-	constructor (assignmentName, totalPointValue) {
-		this.assignmentName = assignmentName;
-		this.totalPointValue = totalPointValue;
-		this.id = assignmentData.length;
-		this.gradeColumn = addGradeColumn(assignmentName, totalPointValue, this.id);
-	}
+    constructor (assignmentName, totalPointValue) {
+        this.assignmentName = assignmentName;
+        this.totalPointValue = totalPointValue;
+        this.id = assignmentData.length;
+
+        // Bonus 2: Move the calls to addGradeColumn of the constructor function
+        // this.gradeColumn = addGradeColumn(assignmentName, totalPointValue, this.id);
+    }
 
 } // end class Assignment
 
 
 function createNewAssignment(assignmentName, totalPointValue) {
-    var assignment = new Assignment(assignmentName, totalPointValue, assignmentData);
-    var i;
+    const assignment = new Assignment(assignmentName, totalPointValue, assignmentData);
+
+    // Bonus 2: set the gradeColumn property on the Assignment objects within assignmentData
+    assignment.gradeColumn = addGradeColumn(assignmentName, totalPointValue, assignment.id);
+
     assignmentData.push(assignment);
-    for (var i = 0; i < gradebookData.length; i = i + 1) {
-        gradebookData[i].grades[assignment.id] = 0;
+
+    for (const student of gradebookData) {
+        student.grades[assignment.id] = 0;
     }
 
     // STEP 4: update grades
@@ -84,11 +92,15 @@ function createNewAssignment(assignmentName, totalPointValue) {
 
 function createNewStudent(firstName, lastName) {
     // create a new student object to add to the gradebook array...
-    var student = new Student(firstName, lastName, gradebookData);
-    var i;
+    const student = new Student(firstName, lastName, gradebookData);
+
+    // Bonus 2: set the studentRow property for the Student objects after addStudentRow has been called from its new location
+    student.studentRow = addStudentRow(student.id, firstName, lastName);
+
     gradebookData.push(student);
+
     // update new student so s/he has a 0 for every assignment i from the assignment array
-    for (i = 0; i < assignmentData.length; i = i + 1) {
+    for (let i = 0; i < assignmentData.length; i++) {
         student.grades[i] = 0;
     }
 
