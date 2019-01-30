@@ -73,6 +73,13 @@ function addGradeColumn(assignmentName, totalPointValue) {
     // Once you have gradeColumn all set up with its text node child, use appendChild again to attach the gradeColumn to gradeHeaderRow.
     gradeHeaderRow.appendChild(gradeColumn);
 
+    // STEP 17: ADD NEW COLUMNS TO ANY EXISTING STUDENTS
+    for (const student of gradebookData) {
+        const td = document.createElement('td');
+        td.textContent = '0';
+        student.studentRow.appendChild(td);
+    }
+
     return gradeColumn;
 }
 
