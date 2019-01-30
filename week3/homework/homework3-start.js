@@ -101,14 +101,20 @@ function updateStudentGrade(studentID, assignmentID, points) {
     // Given a particular student, pull out the location of its row in the
     // DOM, then travel across the non-gradebook columns (studentID, Name, and
     // Grade Percentage. This shifts us over to the column before grades begin
-    var targetColumn = gradebookData[studentID].studentRow.firstChild.nextSibling.nextSibling;
+    let targetColumn = gradebookData[studentID].studentRow.firstChild.nextSibling.nextSibling;
 
     // Note that the targetColumn is now set to the percentage column, not the
     // column corresponding to assignmentData[0]. Take this into account when
     // writing your loop!
 
     // HOMEWORK STEP 3 GOES HERE
+    // used a loop to count over to the correct column
+    for (let i = 0; i <= assignmentID; i++) {
+        targetColumn = targetColumn.nextSibling;
+    }
 
+    // set that column's text content to the number of points
+    targetColumn.textContent = points;
 }
 
 function addGradeColumn(assignmentName, totalPointValue, id) {
