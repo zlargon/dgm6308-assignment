@@ -77,6 +77,9 @@ function createNewAssignment(assignmentName, totalPointValue) {
     for (var i = 0; i < gradebookData.length; i = i + 1) {
         gradebookData[i].grades[assignment.id] = 0;
     }
+
+    // STEP 4: update grades
+    updateGrades()
 }
 
 function createNewStudent(firstName, lastName) {
@@ -88,6 +91,9 @@ function createNewStudent(firstName, lastName) {
     for (i = 0; i < assignmentData.length; i = i + 1) {
         student.grades[i] = 0;
     }
+
+    // STEP 4: update grades
+    updateGrades()
 }
 
 // add to this function in order to update the specific grade before
@@ -115,6 +121,9 @@ function updateStudentGrade(studentID, assignmentID, points) {
 
     // set that column's text content to the number of points
     targetColumn.textContent = points;
+
+    // STEP 4: update grades
+    updateGrades()
 }
 
 function addGradeColumn(assignmentName, totalPointValue, id) {
