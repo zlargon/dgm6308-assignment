@@ -193,7 +193,13 @@ function updateGrades() {
 
         var studentPercentage = (studentRunningTotal/(totalPoints > 0 ? totalPoints : 1)) * 100;
 
-    // HOMEWORK STEP 5 GOES HERE
+        // HOMEWORK STEP 5 GOES HERE
+        gradebookData[i].studentRow
+                        .firstChild     // ID
+                        .nextSibling    // Student
+                        .nextSibling    // Overall
+                        .textContent = `${Math.round(studentPercentage * 100) / 100}%`;
+                        // Take rounding to the second place after the decimal
     }
 }
 
