@@ -41,7 +41,7 @@ for (let i = 0; i < numRows; i++) {
   }
 }
 
-// task 3h
+// task 4: write a stub for the function changeMyName
 function changeMyName() {
-
+  console.log('got here');
 }
