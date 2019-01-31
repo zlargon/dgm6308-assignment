@@ -13,5 +13,35 @@ for (let i = 0; i < numRows; i++) {
 
   for (let j = 0; j < numColumns; j++) {
 
+    // task 3
+    // a. Create a new td element and assign it to the variable theCell.
+    const theCell = document.createElement('td');
+
+    // b. Make theCell a child of theRow
+    theRow.appendChild(theCell);
+
+    // c. Create a new button element and assign it to the variable theButton.
+    const theButton = document.createElement('button');
+
+    // d. Set the id attribute of theButton to the value of j followed by an underscore plus the value of i.
+    theButton.setAttribute('id', `${j}_${i}`);  // i_j or j_i ?
+
+    // e. Make theButton a child of theCell
+    theCell.appendChild(theButton);
+
+    // f. Using document.createTextNode(), create a textNode that contains "Button" plus a Number
+    const theText = document.createTextNode(`Button ${i * numRows + j}`);
+
+    // g. Make theText a child of theButton.
+    theButton.appendChild(theText);
+
+    // h. Add an Event Listener to theButton
+    // when the button is clicked, call a function called changeMyName.
+    theButton.addEventListener('click', changeMyName, false);
   }
+}
+
+// task 3h
+function changeMyName() {
+
 }
