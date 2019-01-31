@@ -42,6 +42,17 @@ for (let i = 0; i < numRows; i++) {
 }
 
 // task 4: write a stub for the function changeMyName
-function changeMyName() {
-  console.log('got here');
+// task 5: For the button that was just clicked, get the last character of the button's name,
+//         convert it to a number, and assign that number to variable myNumber
+function changeMyName(event) {
+  // i.  we should avoid to use "this" in function to get the DOM element
+  // ii. get the Button's text is via the innerText property.
+  const buttonText = event.target.innerText;
+
+  // iii. The charAt() method works on any String and returns the character at a specific position in the String
+  // iv.  the last item of a String is always one less than its length
+  const lastCharacter = buttonText.charAt(buttonText.length - 1);
+
+  // convert it to a number, and assign that number to variable myNumber
+  const myNumber = Number(lastCharacter);
 }
