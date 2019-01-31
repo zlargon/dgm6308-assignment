@@ -54,8 +54,14 @@ function changeMyName(event) {
   const lastCharacter = buttonText.charAt(buttonText.length - 1);
 
   // convert it to a number, and assign that number to variable myNumber
-  const myNumber = Number(lastCharacter);
+  let myNumber = Number(lastCharacter);
 
   // task 6: test to get the number that we expect
-  console.log(myNumber);
+  // console.log(myNumber);
+
+  // task 7: Add 1 to myNumber.
+  myNumber++;
+
+  // task 8: Set the innerText of your Button to "Button " plus myNumber.
+  event.target.innerText = `Button ${myNumber}`;
 }
