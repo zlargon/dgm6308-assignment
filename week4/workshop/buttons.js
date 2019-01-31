@@ -55,4 +55,7 @@ function changeMyName(event) {
 
   // convert it to a number, and assign that number to variable myNumber
   const myNumber = Number(lastCharacter);
+
+  // task 6: test to get the number that we expect
+  console.log(myNumber);
 }
