@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homework 5</title>
+    
+  </head>	
+  <body>
+	<div class="container login">
+		<form id="hmwk5" action="/login/" method="post">
+			<fieldset>
+				<input type="radio" name="login" value="login" id="login"/>
+				<label for="login">Login</label><br>
+				<input type="radio" name="login" value="newacct" id="newacct"/>
+				<label for="newacct">New Account</label><br>
+				<input type="radio" name="login" value="guest" id="guest"/>
+				<label for="guest">Continue as Guest</label><br>
+				
+				<label for="username">Enter Username:</label>
+				<input type="text" id="username" name="username" />
+				<label for="pwd">Enter Password:</label>
+				<input type = "password" id="pwd" name="pwd" />
+				<input type="checkbox" id="showPwd">
+				<label for="showPwd">show password</label>			
+				<input type="submit" value="login" id="login" />		
+				
+			</fieldset>
+			
+		</form>
+	</div>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="utilities.js"></script>
+    <script src="hmwk5.js"></script>
+  </body>
+</html>
+	
