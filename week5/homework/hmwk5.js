@@ -1,6 +1,8 @@
 // elements
 const radios = document.querySelectorAll('input[name="mode"]');
 const panels = document.getElementById('panel').children;
+const form = document.querySelector('form');
+const fieldset = document.querySelector('fieldset');
 
 const login = {
   username: document.getElementById('login_username'),
@@ -55,11 +57,35 @@ const render = () => {
   );
 }
 
+// 5a. show "Welcome back, username!" after login
+login.button.addEventListener('click', () => {
+  fieldset.innerHTML = `Welcome back, ${login.username.value}!`;
+});
+
+// 5b. show "Welcome, username!" after signup
+signup.button.addEventListener('click', () => {
+  fieldset.innerHTML = `Welcome, ${signup.username.value}!`;
+
+  // check to see if the user's password is longer than 5 characters
+  if (signup.password.value.length <= 5) {
+    fieldset.innerHTML += `<br>CAUTION: Your password may not be very secure.`;
+  }
+});
+
+// 5c. show "Welcome, Guest!" after guest login
+guest.button.addEventListener('click', () => {
+  fieldset.innerHTML = 'Welcome, Guest!';
+});
+
 // when the form be changed, invoke render()
-const form = document.querySelector('form');
 form.addEventListener('change', render);
 form.addEventListener('keyup', render);
+form.addEventListener('keydown', (event) => {
+  // prevent Form submit by ENTER because it will automatically submit the Form
+  if (event.keyCode === 13) {
+    event.preventDefault();
+  }
+});
 
 // init the mode panel at first time
 render();
-
