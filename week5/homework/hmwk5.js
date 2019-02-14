@@ -12,6 +12,7 @@ const signup = {
   username: document.getElementById('signup_username'),
   password: document.getElementById('signup_password'),
   verify:   document.getElementById('signup_verify_password'),
+  warning:  document.getElementById('signup_warning'),
   button:   document.getElementById('signup_submit')
 };
 
@@ -44,6 +45,13 @@ const render = () => {
     signup.username.value.length !== 0 &&
     signup.password.value.length !== 0 &&
     signup.verify.value.length   !== 0
+  );
+
+  // 4abc. show the warning if the password fields don't match
+  show(signup.warning,
+    signup.password.value.length !== 0 &&
+    signup.verify.value.length   !== 0 &&
+    signup.password.value !== signup.verify.value
   );
 }
 
