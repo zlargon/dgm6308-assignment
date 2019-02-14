@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homework 5</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <form>
+    <fieldset>
+      <input type="radio" name="mode" value="login" checked/>
+      <label>Login</label>
+      <br>
+      <input type="radio" name="mode" value="signup"/>
+      <label>New Account</label>
+      <br>
+      <input type="radio" name="mode" value="guest"/>
+      <label>Continue as Guest</label>
+      <br>
+      <br>
+
+      <div id="panel">
+        <!-- 1. Login -->
+        <div mode="login">
+          <label>Username:</label>
+          <input type="text" id="login_username" />
+          <br>
+          <br>
+          <label>Password:</label>
+          <input type="password" id="login_password" />
+          <br>
+          <br>
+          <button id="login_submit">Submit</button>
+        </div>
+
+        <!-- 2. Signup -->
+        <div mode="signup">
+          <label>New Username:</label>
+          <input type="text" id="signup_username" />
+          <br>
+          <br>
+          <label>Password:</label>
+          <input type="password" id="signup_password" />
+          <br>
+          <br>
+          <label>Verify Password:</label>
+          <input type="password" id="signup_verify_password" />
+          <br>
+          <br>
+          <button id="signup_submit">Submit</button>
+        </div>
+
+        <!-- 3. Guest -->
+        <div mode="guest">
+          <button id="guest_login">Login</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+<script type="text/javascript" src="hmwk5.js"></script>
+</body>
+</html>
