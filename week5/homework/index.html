@@ -5,61 +5,87 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <form>
-    <fieldset>
-      <!-- 1a. "Log In" should be selected by default -->
-      <input type="radio" name="mode" value="login" checked/>
-      <label>Login</label>
+  <fieldset>
+    <!-- 0. radios -->
+    <form id="radios">
       <br>
-      <input type="radio" name="mode" value="signup"/>
-      <label>New Account</label>
+      <input type="radio" name="panel" value="login" checked> Login<br>
+      <input type="radio" name="panel" value="signup"> New Account<br>
+      <input type="radio" name="panel" value="guest"> Continue as Guest<br>
       <br>
-      <input type="radio" name="mode" value="guest"/>
-      <label>Continue as Guest</label>
+    </form>
+
+    <!-- 1. login -->
+    <div id="login">
+      Username: <input type="text" name="username">
+      <br><br>
+      Password: <input type="password" name="password">
+      <br><br>
+      <button class="hide">Submit</button>
+    </div>
+
+    <!-- 2-1. signup -->
+    <div id="signup" class="hide">
+      New Username: <input type="text" name="username">
+      <br><br>
+      Password: <input type="password" name="password">
+      <br><br>
+      Verify Password: <input type="password" name="verify_password">
+      <br><br>
+      <div class="warning hide">Passwords must match!</div>
+      <button class="hide">Submit</button>
+    </div>
+
+    <!-- 2-2. signup result-->
+    <div id="signup_result" class="hide">
+      <div class="greeting">Welcome, ${USERNAME}!</div>
       <br>
+      <div class="warning hide">CAUTION: Your password may not be very secure.</div>
       <br>
+      <div>Would you like to change your password now?</div>
+      <br>
+      <button>Change Password</button>
+    </div>
 
-      <div id="panel">
-        <!-- 1. Login -->
-        <div mode="login">
-          <label>Username:</label>
-          <input type="text" id="login_username" />
-          <br>
-          <br>
-          <label>Password:</label>
-          <input type="password" id="login_password" />
-          <br>
-          <br>
-          <button id="login_submit">Submit</button>
-        </div>
+    <!-- 3-1. guest -->
+    <div id="guest" class="hide">
+      <button>Login</button>
+    </div>
 
-        <!-- 2. Signup -->
-        <div mode="signup">
-          <label>New Username:</label>
-          <input type="text" id="signup_username" />
-          <br>
-          <br>
-          <label>Password:</label>
-          <input type="password" id="signup_password" />
-          <br>
-          <br>
-          <label>Verify Password:</label>
-          <input type="password" id="signup_verify_password" />
-          <br>
-          <br>
-          <div id="signup_warning" style="color: red;">Passwords must match!</div>
-          <br>
-          <button id="signup_submit">Submit</button>
-        </div>
+    <!-- 3-2. guest result -->
+    <div id="guest_result" class="hide">
+      <div>Welcome, Guest!</div>
+      <br>
+      <div>Would you like to create an account now?</div>
+      <br>
+      <button>Sign up</button>
+    </div>
 
-        <!-- 3. Guest -->
-        <div mode="guest">
-          <button id="guest_login">Login</button>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+    <!-- 4. change password -->
+    <div id="change_password" class="hide">
+      Old Password: <input type="password" name="old_password">
+      <br>
+      <div class="warning hide">Wrong Old Password!</div>
+      <br>
+      New Password: <input type="password" name="new_password">
+      <br><br>
+      Verify New Password: <input type="password" name="verify_new_password">
+      <br><br>
+      <div class="warning hide">Passwords must match!</div>
+      <button class="hide">Submit</button>
+    </div>
 
-<script type="text/javascript" src="hmwk5.js"></script>
+    <!-- 5. final message -->
+    <div id="final_message"></div>
+  </fieldset>
+
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/radio.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/signup.js"></script>
+<script type="text/javascript" src="js/guest.js"></script>
+<script type="text/javascript" src="js/change_password.js"></script>
+<script type="text/javascript" src="js/final_message.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
