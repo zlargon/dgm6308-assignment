@@ -7,17 +7,19 @@ $(function() {
   $newItemForm = $('#newItemForm');              // Cache form to add new items
   $newItemButton = $('#newItemButton');          // Cache button to show form
 
-  $('li').hide().each(function(index) {          // Hide list items
-    $(this).delay(450 * index).fadeIn(1600);     // Then fade them in
+  $('li').hide().each((index, ele) => {          // Hide list items
+    // 1. Modify the special effects so that all of the list items fade in at the same time over a period of half a second.
+    //    This means all items should come in at once rather than one at a time.
+    $(ele).fadeIn(500);                          // Then fade them in
   });
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
-  
-  
+
+
   // WRITE YOUR LOGIC HERE
-  
-  
+
+
   }
   updateCount();                                 // Call the function
 
@@ -31,13 +33,13 @@ $(function() {
 
   // ADDING A NEW LIST ITEM
   $newItemForm.on('submit', function(e) {       // When a new item is submitted
-                  
+
         // Prevent form being submitted
         // Get value of text input
         // Add item to end of the list
         // Empty the text input
         // Update the count
-                  
+
   });
 
   // CLICK HANDLING - USES DELEGATION ON <ul> ELEMENT
@@ -46,12 +48,12 @@ $(function() {
     var complete = $this.hasClass('complete');  // Is item complete
 
     if (complete === true) {           // Check if item is complete
-        
-           
+
+
         // If so, animate opacity + padding
         // Use callback when animation completes
         // Then completely remove this item
-   
+
     } else {                           // Otherwise indicate it is complete
       item = $this.text();             // Get the text from the list item
       $this.remove();                  // Remove the list item
