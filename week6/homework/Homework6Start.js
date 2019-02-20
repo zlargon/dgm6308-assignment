@@ -1,11 +1,9 @@
 $(function() {
 
   // SETUP
-  var $list, $newItemForm, $newItemButton;
-  var item = '';                                 // item is an empty string
-  $list = $('ul');                               // Cache the unordered list
-  $newItemForm = $('#newItemForm');              // Cache form to add new items
-  $newItemButton = $('#newItemButton');          // Cache button to show form
+  const $list = $('ul');                         // Cache the unordered list
+  const $newItemForm = $('#newItemForm');        // Cache form to add new items
+  const $newItemButton = $('#newItemButton');    // Cache button to show form
 
   $('li').hide().each((index, ele) => {          // Hide list items
     // 1. Modify the special effects so that all of the list items fade in at the same time over a period of half a second.
@@ -43,11 +41,9 @@ $(function() {
   });
 
   // CLICK HANDLING - USES DELEGATION ON <ul> ELEMENT
-  $list.on('click', 'li', function() {
-    var $this = $(this);               // Cache the element in a jQuery object
-    var complete = $this.hasClass('complete');  // Is item complete
-
-    if (complete === true) {           // Check if item is complete
+  $list.on('click', 'li', (event) => {
+    const li = $(event.target);               // Cache the element in a jQuery object
+    if (li.hasClass('complete')) {            // Check if item is complete
 
 
         // If so, animate opacity + padding
@@ -55,11 +51,16 @@ $(function() {
         // Then completely remove this item
 
     } else {                           // Otherwise indicate it is complete
-      item = $this.text();             // Get the text from the list item
-      $this.remove();                  // Remove the list item
-      $list                            // Add back to end of list as complete
-        .append('<li class=\"complete\">' + item + '</li>')
-        .hide().fadeIn(300);           // Hide it so it can be faded in
+
+      // 2. Modify the CSS that handles an element that has been marked "completed" so that the bar is a uniform gray color.
+      //    Make this modification in your JavaScript file.
+      li.addClass('complete');         // add complete class to the list item
+
+      // 3. Modify the code that handles an element that has been marked "completed",
+      //    grayed out and move it to the bottom of the list.
+      li.hide().fadeIn(300);           // Hide list item so it can be faded in
+      $list.append(li);                // move the list item to the bottom of the list
+
       updateCount();                   // Update the counter
     }                                  // End of else option
   });                                  // End of event handler
