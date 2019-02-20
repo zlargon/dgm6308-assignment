@@ -45,10 +45,14 @@ $(function() {
     const li = $(event.target);               // Cache the element in a jQuery object
     if (li.hasClass('complete')) {            // Check if item is complete
 
+      // 4. second click on the completed item will remove the item from the list
 
-        // If so, animate opacity + padding
-        // Use callback when animation completes
-        // Then completely remove this item
+      // If so, animate opacity + padding
+      // Use callback when animation completes
+      // Then completely remove this item
+      li.animate({ opacity: 0, padding: 0 }, () => {
+        li.remove();
+      });
 
     } else {                           // Otherwise indicate it is complete
 
