@@ -13,11 +13,8 @@ $(function() {
 
   // ITEM COUNTER
   function updateCount() {                       // Create function to update counter
-
-
-  // WRITE YOUR LOGIC HERE
-
-
+    const count = $('li').length - $('li.complete').length
+    $('#counter').text(count);
   }
   updateCount();                                 // Call the function
 
@@ -31,13 +28,48 @@ $(function() {
 
   // ADDING A NEW LIST ITEM
   $newItemForm.on('submit', function(e) {       // When a new item is submitted
+    e.preventDefault();                         // Prevent form being submitted
 
-        // Prevent form being submitted
-        // Get value of text input
-        // Add item to end of the list
-        // Empty the text input
-        // Update the count
+    // 5. Write additional code in the form submit event handler that checks to see if
+    //    the form value being submitted is blank. If it is blank, then DO NOT add a
+    //    new row to the to-do list or update the number of items. Instead, change the
+    //    form field's placeholder text to read "Seriously, add a description." Once the
+    //    user has submitted an item to the form correctly, change the placeholder
+    //    back to "Add description"
 
+    // Get value of text input
+    // Add item to end of the list
+    // Empty the text input
+    // Update the count
+    const itemDescription = $('#itemDescription');
+
+    // check the text input; return if the text is blank
+    const text = itemDescription.val();
+    if (text.length === 0) {
+      // update the placeholder
+      itemDescription.attr('placeholder', 'Seriously, add a description.');
+      return;
+    }
+
+    // create new list item, which would be insert later
+    const li = $(`<li>${text}</li>`);
+    li.hide().fadeIn(300);
+
+    // insert the item before the first completed item
+    // if the first completed item is not found, insert to the bottom of the list
+    const firstComplete = document.querySelector('.complete');
+    if (firstComplete) {
+      // http://api.jquery.com/insertbefore/
+      li.insertBefore(firstComplete);
+    } else {
+      $list.append(li);
+    }
+
+    // reset placeholder after submit succss
+    itemDescription.attr('placeholder', 'Add description');
+
+    // update the count
+    updateCount();
   });
 
   // CLICK HANDLING - USES DELEGATION ON <ul> ELEMENT
