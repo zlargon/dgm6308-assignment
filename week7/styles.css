@@ -1,3 +1,14 @@
-/* exercise 2: write CSS for your "handle" graphic to position it correctly next to the
-	rest of the machine. you may also wish to reposition the machine using a similar
-	method. */
+#slot_machine {
+  position: relative;
+  margin: auto;
+  width: 625px;
+}
+
+#slot_machine > .header {
+  position: absolute;
+}
+
+#slot_machine > .slot {
+  position: absolute;
+  top: 109px;
+}
