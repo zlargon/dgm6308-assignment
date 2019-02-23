@@ -1,0 +1,68 @@
+/*  1. Write a CSS class (starts with a period, not a hashtag like an ID does!)
+    that, when assigned to an HTML element, will hide it
+
+  2. Style whatever id you selected for your "Game Over" div so that it
+    either appears above the game board or "floats" over the game pieces
+    at the end of the game. Try to style it to look readable, decorative,
+    and centered on the board. Remember that styling by ID starts with a #!
+
+  3. Position whatever id you selected for your "play again?" button so that it
+    appears beneath the game board, preferably near the game board and centered
+    so that the player is likely to notice it.
+
+  I've laid out the board for you, but feel free to change it as you see fit!
+*/
+
+#square0 {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+}
+
+#square1 {
+  position: fixed;
+  left: 100px;
+  top: 50px;
+}
+
+#square2 {
+  position: fixed;
+  left: 150px;
+  top: 50px;
+}
+
+#square3 {
+  position: fixed;
+  left: 50px;
+  top: 100px;
+}
+
+#square4 {
+  position: fixed;
+  left: 100px;
+  top: 100px;
+}
+
+#square5 {
+  position: fixed;
+  left: 150px;
+  top: 100px;
+}
+
+#square6 {
+  position: fixed;
+  left: 50px;
+  top: 150px;
+}
+
+#square7 {
+  position: fixed;
+  left: 100px;
+  top: 150px;
+}
+
+#square8 {
+  position: fixed;
+  left: 150px;
+  top: 150px;
+}
