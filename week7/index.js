@@ -12,9 +12,10 @@ const createHandle = (ele) => {
     const img = map[event];
 
     ele.addEventListener(event, e => {
-      if (isRolling) return;        // ignore the event if handle is rolling
-
-      e.target.src = img;           // set image
+      // ignore the event if handle is rolling
+      if (!isRolling) {
+        e.target.src = img;
+      }
     });
   }
 
@@ -58,7 +59,8 @@ const createSlotMachine = (selector) => {
   const ele = {
     header: root.querySelector('.header'),
     handle: root.querySelector('.handle'),
-    slots: root.querySelectorAll('.slot')
+    slots: root.querySelectorAll('.slot'),
+    audio: root.querySelector('audio')
   }
 
   // slots (objcet instances)
@@ -81,23 +83,27 @@ const createSlotMachine = (selector) => {
   return {
     display,
     handle: createHandle(ele.handle),
-    slots
+    slots,
+    audio: ele.audio
   }
 }
 
 // START: creat a new slot machine component by element id
 const machine = createSlotMachine('slot_machine');
+
+// when the user click the handle, random the new slots
 machine.handle.onClick(() => {
   if (machine.handle.isRolling()) {
     console.log('Slot Machine is rolling');
     return;
   }
 
-  // start rolling
-  machine.handle.rolling(true);
+  machine.handle.rolling(true);   // start rolling
+  machine.display('start');       // display 'try your luck!'
+  machine.audio.play();           // play audio effect
 
+  // change the slots' image randomly every 50 ms
   const intervalId = setInterval(() => {
-    // when the user click the handle, random the new slots
     machine.slots.forEach(slot => {
       const num = Math.round(Math.random() * 100) % Slot.types.length;  // random number: 0, 1, 2
       const type = Slot.types[num]; // get the slot type by index: 'clover', 'heart', 'star'
@@ -105,19 +111,20 @@ machine.handle.onClick(() => {
     });
   }, 50);
 
+  // stop spinning after 2.8 sec
   setTimeout(() => {
-    // stop spinning
-    clearInterval(intervalId);
+    clearInterval(intervalId);  // stop changing the slots' images
 
     // put all slot types in a SET
     // Note: SET is a data structure that can store unique (not repeated) values, without any particular order.
     const slotSet = new Set(machine.slots.map(x => x.type));
 
     // if the SET size is 1, which means all the slot types are the same, then display 'JACKPOT!!'
-    // otherwise, display starting title.
-    machine.display(slotSet.size === 1 ? 'win' : 'start');
+    if (slotSet.size === 1) {
+      machine.display('win');
+    }
 
     // end of rolling
     machine.handle.rolling(false);
-  }, 2000);
+  }, 2800);
 });

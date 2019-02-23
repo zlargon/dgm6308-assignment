@@ -11,4 +11,9 @@
 #slot_machine > .slot {
   position: absolute;
   top: 109px;
+  border-radius: 25px;  /* rounded corners */
+}
+
+#slot_machine > .handle {
+  cursor: pointer;
 }
