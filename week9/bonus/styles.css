@@ -1,0 +1,30 @@
+#root {
+  width: 400px;
+  margin: auto;
+  position: relative;
+}
+
+.board {
+  width: 150px;
+  margin: auto;
+}
+
+.square {
+  margin: -3px -2px;
+}
+
+.game_over {
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 black;
+
+  position: absolute;
+  z-index: 1;
+  top: 45px;
+}
+
+.play_again {
+  margin: 10px auto;
+}
+
