@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Problem2</title>
+    <style>
+		.hide {
+			display: none;
+		}
+	</style>
+  </head>
+  <body>
+	<div id = "main">
+		<form id = "myForm">
+			<fieldset>
+				<legend>How did you hear of us?</legend>
+				<input type="radio" name="heard" value="search" id="search">
+				<label for="search">Search engine</label><br>
+				<input type="radio" name="heard" value="print" id="print">
+				<label for="print">Newspaper or magazine</label><br>
+				<input type="radio" name="heard" value="other" id="other">
+				<label for="other">Other</label><br> <br><br> 
+				<div id="addSelect" class="hide">Select Choices:</div>	<br><br>					
+				<input id="submit" type="submit" value="submit" />
+			</fieldset>
+        
+		</form>
+    </div><!-- main -->  
+	<p id="welcomemessage" class="hide">Welcome!</p>	
+    <script src="radios.js"></script>
+  </body>
+</html>
