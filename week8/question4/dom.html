@@ -1,22 +1,39 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>My page</title>
-	</head>
 
-	<body>
-		<div>The header</div>
-		<ul id="myList">
-			<li>A list</li>
-			<li>A second list</li>
-			<li>A third List</li>
-		</ul>
-		<div>The footer</div>
-		<script>
-			var elem = document.getElementById("myList");
-			// add your code here to test and see if elem has any children
-			// output the result in console.log.
-			
-		</script>	
-	</body>
+<head>
+  <title>My page</title>
+</head>
+
+<body>
+  <div>The header</div>
+  <ul id="myList">
+    <li>A list</li>
+    <li>A second list</li>
+    <li>A third List</li>
+  </ul>
+  <div>The footer</div>
+  <script>
+  const elem = document.getElementById("myList");
+  // add your code here to test and see if elem has any children
+  // output the result in console.log.
+
+  console.log('1. Write the code to check if the DOM node elem is totally empty.  If not empty, print the number of nodes in console.log.');
+  if (elem.children.length !== 0) {
+    console.log(elem.children.length);
+  } else {
+    console.log('is empty');
+  }
+
+  console.log('\n2. Write the code to access the <ul> element using children.');
+  const ul = document.body.children.myList
+  console.log(ul);
+
+  console.log('\n3. Write the code to access the second <li> using children.');
+  console.log(ul.children[1]);
+
+  console.log('\n4. Is document.body.lastChild.nextSibling always null?');
+  console.log(document.body.lastChild.nextSibling === null ? 'Yes' : 'No');
+  </script>
+</body>
 </html>
